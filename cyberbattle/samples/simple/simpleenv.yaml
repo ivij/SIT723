@@ -1,0 +1,600 @@
+!!python/object/new:cyberbattle.simulation.model.Environment
+- !!python/object:networkx.classes.graph.Graph
+  _adj:
+    '0':
+      '1': &id001 {}
+      '3': &id003 {}
+      '4': &id005 {}
+    '1':
+      '0': *id001
+      '2': &id002 {}
+      '7': &id010 {}
+    '2':
+      '1': *id002
+      '3': &id004 {}
+      '6': &id008 {}
+    '3':
+      '0': *id003
+      '2': *id004
+      '5': &id006 {}
+    '4':
+      '0': *id005
+      '5': &id007 {}
+      '7': &id011 {}
+    '5':
+      '3': *id006
+      '4': *id007
+      '6': &id009 {}
+    '6':
+      '2': *id008
+      '5': *id009
+      '7': &id012 {}
+    '7':
+      '1': *id010
+      '4': *id011
+      '6': *id012
+  _node: &id018
+    '0':
+      data: !!python/object:cyberbattle.simulation.model.NodeInfo
+        agent_installed: false
+        firewall: !!python/object/new:cyberbattle.simulation.model.FirewallConfiguration
+        - - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - SMB
+            - &id013 !!python/object/apply:cyberbattle.simulation.model.RulePermission
+              - 0
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - HTTPS
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - HTTP
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - WMI
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - SQL
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - SSH
+            - *id013
+            - ''
+        - - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - RDP
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - WMI
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - SQL
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - SSH
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - HTTP
+            - *id013
+            - ''
+        last_reimaging: null
+        owned_string: ''
+        privilege_level: !!python/object/apply:cyberbattle.simulation.model.PrivilegeLevel
+        - 0
+        properties:
+        - HyperV-VM
+        - Win7
+        - Windows
+        - PortRDPOpen
+        - Azure-VM
+        - Linux
+        - GuestAccountEnabled
+        - Win10
+        reimagable: true
+        services: []
+        sla_weight: 1.0
+        value: 75
+        vulnerabilities:
+          RecentlyAccessedMachines: !!python/object/new:cyberbattle.simulation.model.VulnerabilityInfo
+          - AzureVM info, including public IP address
+          - &id014 !VulnerabilityType 'LOCAL'
+          - !!python/object:cyberbattle.simulation.model.LeakedNodesId
+            nodes:
+            - '4'
+            - '1'
+            - '3'
+          - &id015 !BooleanExpression '1'
+          - &id016 !!python/object/new:cyberbattle.simulation.model.Rates
+            - 0.0
+            - 0.0
+            - 1.0
+          - ''
+          - 1.0
+          - ''
+    '1':
+      data: !!python/object:cyberbattle.simulation.model.NodeInfo
+        agent_installed: false
+        firewall: !!python/object/new:cyberbattle.simulation.model.FirewallConfiguration
+        - []
+        - - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - SQL
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - SMB
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - HTTP
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - WMI
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - HTTPS
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - SSH
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - RDP
+            - *id013
+            - ''
+        last_reimaging: null
+        owned_string: ''
+        privilege_level: !!python/object/apply:cyberbattle.simulation.model.PrivilegeLevel
+        - 0
+        properties:
+        - PortRDPOpen
+        reimagable: true
+        services: []
+        sla_weight: 1.0
+        value: 43
+        vulnerabilities:
+          RecentlyAccessedMachines: !!python/object/new:cyberbattle.simulation.model.VulnerabilityInfo
+          - AzureVM info, including public IP address
+          - *id014
+          - !!python/object:cyberbattle.simulation.model.LeakedNodesId
+            nodes:
+            - '7'
+            - '2'
+          - *id015
+          - *id016
+          - ''
+          - 1.0
+          - ''
+    '2':
+      data: !!python/object:cyberbattle.simulation.model.NodeInfo
+        agent_installed: false
+        firewall: !!python/object/new:cyberbattle.simulation.model.FirewallConfiguration
+        - - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - SMB
+            - *id013
+            - ''
+        - - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - SMB
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - HTTPS
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - RDP
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - WMI
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - SQL
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - HTTP
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - SSH
+            - *id013
+            - ''
+        last_reimaging: null
+        owned_string: ''
+        privilege_level: !!python/object/apply:cyberbattle.simulation.model.PrivilegeLevel
+        - 0
+        properties:
+        - PortRDPOpen
+        - Windows
+        - HyperV-VM
+        reimagable: true
+        services: []
+        sla_weight: 1.0
+        value: 11
+        vulnerabilities:
+          RecentlyAccessedMachines: !!python/object/new:cyberbattle.simulation.model.VulnerabilityInfo
+          - AzureVM info, including public IP address
+          - *id014
+          - !!python/object:cyberbattle.simulation.model.LeakedNodesId
+            nodes:
+            - '6'
+            - '3'
+          - *id015
+          - *id016
+          - ''
+          - 1.0
+          - ''
+    '3':
+      data: !!python/object:cyberbattle.simulation.model.NodeInfo
+        agent_installed: false
+        firewall: !!python/object/new:cyberbattle.simulation.model.FirewallConfiguration
+        - []
+        - - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - RDP
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - SQL
+            - *id013
+            - ''
+        last_reimaging: null
+        owned_string: ''
+        privilege_level: !!python/object/apply:cyberbattle.simulation.model.PrivilegeLevel
+        - 0
+        properties:
+        - PortRDPOpen
+        - Azure-VM
+        reimagable: true
+        services: []
+        sla_weight: 1.0
+        value: 87
+        vulnerabilities:
+          RecentlyAccessedMachines: !!python/object/new:cyberbattle.simulation.model.VulnerabilityInfo
+          - AzureVM info, including public IP address
+          - *id014
+          - !!python/object:cyberbattle.simulation.model.LeakedNodesId
+            nodes:
+            - '5'
+          - *id015
+          - *id016
+          - ''
+          - 1.0
+          - ''
+    '4':
+      data: !!python/object:cyberbattle.simulation.model.NodeInfo
+        agent_installed: false
+        firewall: !!python/object/new:cyberbattle.simulation.model.FirewallConfiguration
+        - - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - HTTPS
+            - *id013
+            - ''
+        - - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - SSH
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - HTTPS
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - SMB
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - RDP
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - WMI
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - HTTP
+            - *id013
+            - ''
+        last_reimaging: null
+        owned_string: ''
+        privilege_level: !!python/object/apply:cyberbattle.simulation.model.PrivilegeLevel
+        - 0
+        properties:
+        - PortRDPOpen
+        - Win7
+        - Azure-VM
+        - Windows
+        - HyperV-VM
+        - GuestAccountEnabled
+        reimagable: true
+        services: []
+        sla_weight: 1.0
+        value: 74
+        vulnerabilities:
+          RecentlyAccessedMachines: !!python/object/new:cyberbattle.simulation.model.VulnerabilityInfo
+          - AzureVM info, including public IP address
+          - *id014
+          - !!python/object:cyberbattle.simulation.model.LeakedNodesId
+            nodes:
+            - '5'
+            - '7'
+          - *id015
+          - *id016
+          - ''
+          - 1.0
+          - ''
+    '5':
+      data: !!python/object:cyberbattle.simulation.model.NodeInfo
+        agent_installed: false
+        firewall: !!python/object/new:cyberbattle.simulation.model.FirewallConfiguration
+        - - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - HTTPS
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - RDP
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - SMB
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - SQL
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - WMI
+            - *id013
+            - ''
+        - - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - SMB
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - SQL
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - WMI
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - SSH
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - RDP
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - HTTPS
+            - *id013
+            - ''
+        last_reimaging: null
+        owned_string: ''
+        privilege_level: !!python/object/apply:cyberbattle.simulation.model.PrivilegeLevel
+        - 0
+        properties:
+        - Win10
+        - Linux
+        - PortRDPOpen
+        - Azure-VM
+        - Win7
+        reimagable: true
+        services: []
+        sla_weight: 1.0
+        value: 95
+        vulnerabilities:
+          RecentlyAccessedMachines: !!python/object/new:cyberbattle.simulation.model.VulnerabilityInfo
+          - AzureVM info, including public IP address
+          - *id014
+          - !!python/object:cyberbattle.simulation.model.LeakedNodesId
+            nodes:
+            - '6'
+          - *id015
+          - *id016
+          - ''
+          - 1.0
+          - ''
+    '6':
+      data: !!python/object:cyberbattle.simulation.model.NodeInfo
+        agent_installed: false
+        firewall: !!python/object/new:cyberbattle.simulation.model.FirewallConfiguration
+        - - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - HTTPS
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - SQL
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - SSH
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - RDP
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - HTTP
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - WMI
+            - *id013
+            - ''
+        - - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - HTTPS
+            - *id013
+            - ''
+        last_reimaging: null
+        owned_string: ''
+        privilege_level: !!python/object/apply:cyberbattle.simulation.model.PrivilegeLevel
+        - 0
+        properties:
+        - Win7
+        - PortRDPOpen
+        - Linux
+        reimagable: true
+        services: []
+        sla_weight: 1.0
+        value: 20
+        vulnerabilities:
+          RecentlyAccessedMachines: !!python/object/new:cyberbattle.simulation.model.VulnerabilityInfo
+          - AzureVM info, including public IP address
+          - *id014
+          - !!python/object:cyberbattle.simulation.model.LeakedNodesId
+            nodes:
+            - '7'
+          - *id015
+          - *id016
+          - ''
+          - 1.0
+          - ''
+    '7':
+      data: !!python/object:cyberbattle.simulation.model.NodeInfo
+        agent_installed: true
+        firewall: !!python/object/new:cyberbattle.simulation.model.FirewallConfiguration
+        - - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - HTTPS
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - RDP
+            - *id013
+            - ''
+        - - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - HTTP
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - SMB
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - SQL
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - SSH
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - RDP
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - WMI
+            - *id013
+            - ''
+          - !!python/object/new:cyberbattle.simulation.model.FirewallRule
+            - HTTPS
+            - *id013
+            - ''
+        last_reimaging: null
+        owned_string: ''
+        privilege_level: !!python/object/apply:cyberbattle.simulation.model.PrivilegeLevel
+        - 2
+        properties:
+        - PortRDPOpen
+        - Win10
+        reimagable: false
+        services: []
+        sla_weight: 1.0
+        value: 0
+        vulnerabilities: {}
+  adjlist_inner_dict_factory: &id017 !!python/name:builtins.dict ''
+  adjlist_outer_dict_factory: *id017
+  edge_attr_dict_factory: *id017
+  graph:
+    name: !!python/tuple
+    - Platonic Cubical Graph
+  graph_attr_dict_factory: *id017
+  node_attr_dict_factory: *id017
+  node_dict_factory: *id017
+  nodes: !!python/object:networkx.classes.reportviews.NodeView
+    _nodes: *id018
+- MimikatzLogonpasswords: !!python/object/new:cyberbattle.simulation.model.VulnerabilityInfo
+  - Mimikatz sekurlsa::logonpasswords.
+  - *id014
+  - !!python/object:cyberbattle.simulation.model.LeakedCredentials
+    credentials: []
+  - !BooleanExpression 'Windows&(privilege_2|privilege_3)'
+  - !!python/object/new:cyberbattle.simulation.model.Rates
+    - 0
+    - 1.0
+    - 1.0
+  - https://github.com/gentilkiwi/mimikatz
+  - 1.0
+  - ''
+  RDPBF: !!python/object/new:cyberbattle.simulation.model.VulnerabilityInfo
+  - RDP Brute Force
+  - !VulnerabilityType 'REMOTE'
+  - !!python/object:cyberbattle.simulation.model.LateralMove {}
+  - !BooleanExpression 'Windows&PortRDPOpen'
+  - !!python/object/new:cyberbattle.simulation.model.Rates
+    - 0
+    - 0.2
+    - 1.0
+  - https://attack.mitre.org/techniques/T1110/
+  - 1.0
+  - ''
+  UACME61: !!python/object/new:cyberbattle.simulation.model.VulnerabilityInfo
+  - 'UACME UAC bypass #61'
+  - *id014
+  - !!python/object:cyberbattle.simulation.model.AdminEscalation
+    level: !!python/object/apply:cyberbattle.simulation.model.PrivilegeLevel
+    - 2
+  - !BooleanExpression 'Windows&Win10&(~(privilege_2|privilege_3))'
+  - !!python/object/new:cyberbattle.simulation.model.Rates
+    - 0
+    - 0.2
+    - 1.0
+  - https://github.com/hfiref0x/UACME
+  - 1.0
+  - ''
+  UACME67: !!python/object/new:cyberbattle.simulation.model.VulnerabilityInfo
+  - 'UACME UAC bypass #67 (fake system escalation) '
+  - *id014
+  - !!python/object:cyberbattle.simulation.model.SystemEscalation
+    level: !!python/object/apply:cyberbattle.simulation.model.PrivilegeLevel
+    - 3
+  - !BooleanExpression 'Windows&Win10&(~(privilege_2|privilege_3))'
+  - !!python/object/new:cyberbattle.simulation.model.Rates
+    - 0
+    - 0.2
+    - 1.0
+  - https://github.com/hfiref0x/UACME
+  - 1.0
+  - ''
+- !!python/object/new:cyberbattle.simulation.model.Identifiers
+  - - Linux
+    - PortSSHOpen
+    - PortSQLOpen
+    - Windows
+    - Win10
+    - PortRDPOpen
+    - PortHTTPOpen
+    - PortHTTPsOpen
+    - SharepointLeakingPassword
+  - - RDP
+    - HTTP
+    - HTTPS
+    - SSH
+  - - UACME61
+    - UACME67
+    - MimikatzLogonpasswords
+    - UACME61
+  - - RDPBF
+- 2022-06-12 05:05:13.725377
+- 2022-06-12 05:05:13.725383
+- 0.1.0
