@@ -1,44 +1,55 @@
-import gym
+import gym, time
 import numpy as np
-from td3 import Agent
-from utils import plot_learning_curve
+import matplotlib.pyplot as plt
+from agent_dueling_dqn import Agent
+from utils import plotLearning
+import time
 
 if __name__ == '__main__':
-    env = gym.make('LunarLanderContinuous-v2')
-    agent = Agent(alpha=0.001, beta=0.001,
-            input_dims=env.observation_space.shape, tau=0.005,
-            env=env, batch_size=100, layer1_size=400, layer2_size=300,
-            n_actions=env.action_space.shape[0])
-    n_games = 1000
-    filename = 'plots/' + 'LunarLanderContinuous_' + str(n_games) + '_games.png'
+    env = gym.make('LunarLander-v2')
+    num_games = 1000
+    load_checkpoint = False
 
-    best_score = env.reward_range[0]
-    score_history = []
+    agent = Agent(gamma=0.99, epsilon=1.0, alpha=5e-4,
+                  input_dims=[8], n_actions=4, mem_size=100000, eps_min=0.01,
+                  batch_size=64, eps_dec=1e-3, replace=100)
 
-    # agent.load_models()
+    if load_checkpoint:
+        agent.load_models()
 
-
-    for i in range(n_games):
-        observation = env.reset()
+    filename = 'duel-1000-2.png'
+    scores = []
+    eps_history = []
+    n_steps = 0
+    start = time.time()
+    for i in range(num_games):
         done = False
+        observation = env.reset()
         score = 0
+
         while not done:
             action = agent.choose_action(observation)
             observation_, reward, done, info = env.step(action)
-            agent.remember(observation, action, reward, observation_, done)
-            agent.learn()
+            n_steps += 1
             score += reward
+            agent.store_transition(observation, action,
+                                    reward, observation_, int(done))
+            agent.learn()
+
             observation = observation_
-            env.render()
-        score_history.append(score)
-        avg_score = np.mean(score_history[-100:])
 
-        if avg_score > best_score:
-            best_score = avg_score
-            agent.save_models()
 
-        print('episode ', i, 'score %.1f' % score,
-                'average score %.1f' % avg_score)
+        scores.append(score)
+        avg_score = np.mean(scores[max(0, i-100):(i+1)])
+        print('episode: ', i,'score %.1f ' % score,
+             ' average score %.1f' % avg_score,
+            'epsilon %.2f' % agent.epsilon)
+        #if i > 0 and i % 10 == 0:
+        #    agent.save_models()
 
-    x = [i+1 for i in range(n_games)]
-    plot_learning_curve(x, score_history, filename)
+        eps_history.append(agent.epsilon)
+
+    x = [i+1 for i in range(num_games)]
+    plotLearning(x, scores, eps_history, filename)
+    end = time.time()
+    print(end - start)
